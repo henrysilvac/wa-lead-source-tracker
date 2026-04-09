@@ -1,0 +1,13 @@
+.wa-ls-wrap .wa-ls-placeholders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.wa-ls-wrap .wa-ls-placeholders code {
+  padding: 6px 8px;
+  background: #f6f7f7;
+  border: 1px solid #dcdcde;
+  border-radius: 4px;
+}
