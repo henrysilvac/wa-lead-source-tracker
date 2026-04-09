@@ -44,8 +44,8 @@ msgid "Referral"
 msgstr "Referral"
 
 #: includes/class-wa-ls-settings.php
-msgid "Hi, I'd like more information.\n\n📋 Reference code (do not modify — helps us assign you the right advisor):\n[channel:{channel}]\n[source:{utm_source}]\n[medium:{utm_medium}]\n[campaign:{utm_campaign}]\n[term:{utm_term}]\n[gclid:{gclid}]"
-msgstr "Hola, quiero más información.\n\n📋 Código de referencia (no modificar — nos permite asignarte el asesor adecuado):\n[canal:{channel}]\n[source:{utm_source}]\n[medium:{utm_medium}]\n[campaign:{utm_campaign}]\n[term:{utm_term}]\n[gclid:{gclid}]"
+msgid "Hi, I'd like more information.\n\n⚠️ Reference code (do not modify — helps us assign you the right advisor):\n[channel:{channel}]\n[source:{utm_source}]\n[medium:{utm_medium}]\n[campaign:{utm_campaign}]\n[term:{utm_term}]\n[gclid:{gclid}]"
+msgstr "Hola, quiero más información.\n\n⚠️ Código de referencia (no modificar — nos permite asignarte el asesor adecuado):\n[canal:{channel}]\n[source:{utm_source}]\n[medium:{utm_medium}]\n[campaign:{utm_campaign}]\n[term:{utm_term}]\n[gclid:{gclid}]"
 
 #: includes/class-wa-ls-settings.php
 msgid "General Settings"

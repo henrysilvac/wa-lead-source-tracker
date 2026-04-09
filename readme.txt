@@ -4,7 +4,7 @@ Tags: whatsapp, utm, tracking, leads, attribution
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 0.5.0
+Stable tag: 0.5.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Author URI: https://henry.silva.llc/
@@ -94,6 +94,9 @@ English: Lines in the message template whose placeholder has no captured value a
 Español: Las líneas de la plantilla cuyo placeholder no tenga valor capturado se eliminan automáticamente del mensaje de WhatsApp.
 
 == Changelog ==
+
+= 0.5.1 =
+* Replaced 📋 emoji with ⚠️ for universal rendering across all devices and WhatsApp versions.
 
 = 0.5.0 =
 * Default message template now includes a framed reference block before tracking variables to discourage users from deleting attribution data.

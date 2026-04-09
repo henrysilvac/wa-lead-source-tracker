@@ -8,7 +8,7 @@ class WA_LS_Settings {
         return [
             'enabled' => 1,
             'phone' => '51999999999',
-            'message_template' => __("Hi, I'd like more information.\n\n📋 Reference code (do not modify — helps us assign you the right advisor):\n[channel:{channel}]\n[source:{utm_source}]\n[medium:{utm_medium}]\n[campaign:{utm_campaign}]\n[term:{utm_term}]\n[gclid:{gclid}]", 'wa-lead-source-tracker'),
+            'message_template' => __("Hi, I'd like more information.\n\n⚠️ Reference code (do not modify — helps us assign you the right advisor):\n[channel:{channel}]\n[source:{utm_source}]\n[medium:{utm_medium}]\n[campaign:{utm_campaign}]\n[term:{utm_term}]\n[gclid:{gclid}]", 'wa-lead-source-tracker'),
             'mode' => 'selector',
             'selector' => '.js-whatsapp-track',
             'debug' => 0,
