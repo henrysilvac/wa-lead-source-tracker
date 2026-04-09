@@ -60,35 +60,36 @@
   }
 
   function detectChannel(data) {
+    const ch = (wa_ls_config.channels || {});
     const source = (data.utm_source || '').toLowerCase();
     const medium = (data.utm_medium || '').toLowerCase();
 
     if (source === 'google' && ['cpc', 'ppc', 'paid'].includes(medium)) {
-      return 'Google Ads';
+      return ch.google_ads || 'Google Ads';
     }
 
     if ((source === 'facebook' || source === 'instagram') && ['cpc', 'ppc', 'paid', 'paid_social'].includes(medium)) {
-      return 'Meta Ads';
+      return ch.meta_ads || 'Meta Ads';
     }
 
     if (data.gclid || data.gbraid || data.wbraid) {
-      return 'Google Ads';
+      return ch.google_ads || 'Google Ads';
     }
 
     if (data.fbclid) {
-      return 'Meta Ads';
+      return ch.meta_ads || 'Meta Ads';
     }
 
     if (source === 'google' && medium === 'organic') {
-      return 'Orgánico';
+      return ch.organic || 'Organic';
     }
 
     if (medium === 'organic') {
-      return 'Orgánico';
+      return ch.organic || 'Organic';
     }
 
     if (medium === 'referral') {
-      return 'Referral';
+      return ch.referral || 'Referral';
     }
 
     return '';

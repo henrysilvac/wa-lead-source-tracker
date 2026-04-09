@@ -8,7 +8,7 @@ class WA_LS_Settings {
         return [
             'enabled' => 1,
             'phone' => '51999999999',
-            'message_template' => "Hola, quiero más información.\n\n[canal:{channel}]\n[source:{utm_source}]\n[medium:{utm_medium}]\n[campaign:{utm_campaign}]\n[term:{utm_term}]\n[gclid:{gclid}]",
+            'message_template' => __("Hi, I'd like more information.\n\n[channel:{channel}]\n[source:{utm_source}]\n[medium:{utm_medium}]\n[campaign:{utm_campaign}]\n[term:{utm_term}]\n[gclid:{gclid}]", 'wa-lead-source-tracker'),
             'mode' => 'selector',
             'selector' => '.js-whatsapp-track',
             'debug' => 0,
@@ -36,18 +36,18 @@ class WA_LS_Settings {
 
         add_settings_section(
             'wa_ls_main_section',
-            __('Configuración general', 'wa-lead-source-tracker'),
+            __('General Settings', 'wa-lead-source-tracker'),
             '__return_false',
             'wa-lead-source-tracker'
         );
 
         $fields = [
-            'enabled' => __('Activar plugin', 'wa-lead-source-tracker'),
-            'phone' => __('Número de WhatsApp', 'wa-lead-source-tracker'),
-            'mode' => __('Modo de funcionamiento', 'wa-lead-source-tracker'),
-            'selector' => __('Selector CSS', 'wa-lead-source-tracker'),
-            'message_template' => __('Plantilla de mensaje', 'wa-lead-source-tracker'),
-            'debug' => __('Modo debug', 'wa-lead-source-tracker'),
+            'enabled'          => __('Enable plugin', 'wa-lead-source-tracker'),
+            'phone'            => __('WhatsApp number', 'wa-lead-source-tracker'),
+            'mode'             => __('Operation mode', 'wa-lead-source-tracker'),
+            'selector'         => __('CSS selector', 'wa-lead-source-tracker'),
+            'message_template' => __('Message template', 'wa-lead-source-tracker'),
+            'debug'            => __('Debug mode', 'wa-lead-source-tracker'),
         ];
 
         foreach ($fields as $key => $label) {
@@ -96,7 +96,9 @@ class WA_LS_Settings {
                 ?>
                 <label>
                     <input type="checkbox" name="<?php echo esc_attr(WA_LS_OPTION_KEY); ?>[<?php echo esc_attr($key); ?>]" value="1" <?php checked(!empty($settings[$key])); ?> />
-                    <?php echo $key === 'enabled' ? esc_html__('Habilitar la funcionalidad en frontend.', 'wa-lead-source-tracker') : esc_html__('Mostrar datos en consola del navegador.', 'wa-lead-source-tracker'); ?>
+                    <?php echo $key === 'enabled'
+                        ? esc_html__('Enable frontend functionality.', 'wa-lead-source-tracker')
+                        : esc_html__('Show data in browser console.', 'wa-lead-source-tracker'); ?>
                 </label>
                 <?php
                 break;
@@ -104,31 +106,31 @@ class WA_LS_Settings {
             case 'phone':
                 ?>
                 <input type="text" class="regular-text" name="<?php echo esc_attr(WA_LS_OPTION_KEY); ?>[phone]" value="<?php echo esc_attr($settings['phone']); ?>" placeholder="51999999999" />
-                <p class="description"><?php esc_html_e('Usa formato internacional sin símbolos ni espacios.', 'wa-lead-source-tracker'); ?></p>
+                <p class="description"><?php esc_html_e('Use international format without symbols or spaces.', 'wa-lead-source-tracker'); ?></p>
                 <?php
                 break;
 
             case 'mode':
                 ?>
                 <select name="<?php echo esc_attr(WA_LS_OPTION_KEY); ?>[mode]">
-                    <option value="selector" <?php selected($settings['mode'], 'selector'); ?>><?php esc_html_e('Selector CSS', 'wa-lead-source-tracker'); ?></option>
-                    <option value="shortcode" <?php selected($settings['mode'], 'shortcode'); ?>><?php esc_html_e('Shortcode propio', 'wa-lead-source-tracker'); ?></option>
+                    <option value="selector" <?php selected($settings['mode'], 'selector'); ?>><?php esc_html_e('CSS Selector', 'wa-lead-source-tracker'); ?></option>
+                    <option value="shortcode" <?php selected($settings['mode'], 'shortcode'); ?>><?php esc_html_e('Plugin shortcode', 'wa-lead-source-tracker'); ?></option>
                 </select>
-                <p class="description"><?php esc_html_e('Selector CSS reutiliza botones existentes. Shortcode crea botones del plugin.', 'wa-lead-source-tracker'); ?></p>
+                <p class="description"><?php esc_html_e('CSS Selector reuses existing buttons. Shortcode creates plugin buttons.', 'wa-lead-source-tracker'); ?></p>
                 <?php
                 break;
 
             case 'selector':
                 ?>
                 <input type="text" class="regular-text" name="<?php echo esc_attr(WA_LS_OPTION_KEY); ?>[selector]" value="<?php echo esc_attr($settings['selector']); ?>" placeholder=".js-whatsapp-track" />
-                <p class="description"><?php esc_html_e('Ejemplo: .js-whatsapp-track o a[href*="wa.me"]', 'wa-lead-source-tracker'); ?></p>
+                <p class="description"><?php esc_html_e('Example: .js-whatsapp-track or a[href*="wa.me"]', 'wa-lead-source-tracker'); ?></p>
                 <?php
                 break;
 
             case 'message_template':
                 ?>
                 <textarea name="<?php echo esc_attr(WA_LS_OPTION_KEY); ?>[message_template]" rows="8" class="large-text code"><?php echo esc_textarea($settings['message_template']); ?></textarea>
-                <p class="description"><?php esc_html_e('Placeholders disponibles: {channel}, {utm_source}, {utm_medium}, {utm_campaign}, {utm_content}, {utm_term}, {gclid}, {gbraid}, {wbraid}, {fbclid}, {landing_page}, {captured_at}', 'wa-lead-source-tracker'); ?></p>
+                <p class="description"><?php esc_html_e('Available placeholders: {channel}, {utm_source}, {utm_medium}, {utm_campaign}, {utm_content}, {utm_term}, {gclid}, {gbraid}, {wbraid}, {fbclid}, {landing_page}, {captured_at}', 'wa-lead-source-tracker'); ?></p>
                 <?php
                 break;
         }

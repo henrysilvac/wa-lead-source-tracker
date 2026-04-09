@@ -8,7 +8,7 @@ class WA_LS_Shortcode {
         $settings = WA_LS_Settings::get_settings();
 
         $atts = shortcode_atts([
-            'label' => __('Escríbenos por WhatsApp', 'wa-lead-source-tracker'),
+            'label' => __('Write to us on WhatsApp', 'wa-lead-source-tracker'),
             'phone' => $settings['phone'],
             'class' => 'js-whatsapp-track wa-ls-button',
         ], $atts, 'wa_lead_button');

@@ -1,0 +1,144 @@
+# Copyright (C) 2026 Henry Silva
+# This file is distributed under the same license as the WA Lead Source Tracker plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WA Lead Source Tracker 0.4.0\n"
+"Report-Msgid-Bugs-To: https://henry.silva.llc/\n"
+"POT-Creation-Date: 2026-04-09T00:00:00+00:00\n"
+"PO-Revision-Date: 2026-04-09T00:00:00+00:00\n"
+"Last-Translator: Henry Silva\n"
+"Language-Team: Spanish\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: wa-lead-source-tracker\n"
+
+#. Plugin Name
+msgid "WA Lead Source Tracker"
+msgstr "WA Lead Source Tracker"
+
+#: includes/class-wa-ls-plugin.php
+msgid "Starter kit installed. Use the [wa_lead_button] shortcode or define a CSS selector to reuse existing buttons."
+msgstr "Starter kit instalado. Usa el shortcode [wa_lead_button] o define un selector CSS para reutilizar botones existentes."
+
+#: includes/class-wa-ls-plugin.php
+msgid "N/A"
+msgstr "N/D"
+
+#: includes/class-wa-ls-plugin.php
+msgid "Google Ads"
+msgstr "Google Ads"
+
+#: includes/class-wa-ls-plugin.php
+msgid "Meta Ads"
+msgstr "Meta Ads"
+
+#: includes/class-wa-ls-plugin.php
+msgid "Organic"
+msgstr "Orgánico"
+
+#: includes/class-wa-ls-plugin.php
+msgid "Referral"
+msgstr "Referral"
+
+#: includes/class-wa-ls-settings.php
+msgid "Hi, I'd like more information.\n\n[channel:{channel}]\n[source:{utm_source}]\n[medium:{utm_medium}]\n[campaign:{utm_campaign}]\n[term:{utm_term}]\n[gclid:{gclid}]"
+msgstr "Hola, quiero más información.\n\n[canal:{channel}]\n[source:{utm_source}]\n[medium:{utm_medium}]\n[campaign:{utm_campaign}]\n[term:{utm_term}]\n[gclid:{gclid}]"
+
+#: includes/class-wa-ls-settings.php
+msgid "General Settings"
+msgstr "Configuración general"
+
+#: includes/class-wa-ls-settings.php
+msgid "Enable plugin"
+msgstr "Activar plugin"
+
+#: includes/class-wa-ls-settings.php
+msgid "WhatsApp number"
+msgstr "Número de WhatsApp"
+
+#: includes/class-wa-ls-settings.php
+msgid "Operation mode"
+msgstr "Modo de funcionamiento"
+
+#: includes/class-wa-ls-settings.php
+msgid "CSS selector"
+msgstr "Selector CSS"
+
+#: includes/class-wa-ls-settings.php
+msgid "Message template"
+msgstr "Plantilla de mensaje"
+
+#: includes/class-wa-ls-settings.php
+msgid "Debug mode"
+msgstr "Modo debug"
+
+#: includes/class-wa-ls-settings.php
+msgid "Enable frontend functionality."
+msgstr "Habilitar la funcionalidad en frontend."
+
+#: includes/class-wa-ls-settings.php
+msgid "Show data in browser console."
+msgstr "Mostrar datos en consola del navegador."
+
+#: includes/class-wa-ls-settings.php
+msgid "Use international format without symbols or spaces."
+msgstr "Usa formato internacional sin símbolos ni espacios."
+
+#: includes/class-wa-ls-settings.php
+msgid "CSS Selector"
+msgstr "Selector CSS"
+
+#: includes/class-wa-ls-settings.php
+msgid "Plugin shortcode"
+msgstr "Shortcode propio"
+
+#: includes/class-wa-ls-settings.php
+msgid "CSS Selector reuses existing buttons. Shortcode creates plugin buttons."
+msgstr "Selector CSS reutiliza botones existentes. Shortcode crea botones del plugin."
+
+#: includes/class-wa-ls-settings.php
+msgid "Example: .js-whatsapp-track or a[href*=\"wa.me\"]"
+msgstr "Ejemplo: .js-whatsapp-track o a[href*=\"wa.me\"]"
+
+#: includes/class-wa-ls-settings.php
+msgid "Available placeholders: {channel}, {utm_source}, {utm_medium}, {utm_campaign}, {utm_content}, {utm_term}, {gclid}, {gbraid}, {wbraid}, {fbclid}, {landing_page}, {captured_at}"
+msgstr "Placeholders disponibles: {channel}, {utm_source}, {utm_medium}, {utm_campaign}, {utm_content}, {utm_term}, {gclid}, {gbraid}, {wbraid}, {fbclid}, {landing_page}, {captured_at}"
+
+#: includes/class-wa-ls-shortcode.php
+msgid "Write to us on WhatsApp"
+msgstr "Escríbenos por WhatsApp"
+
+#: admin/settings-page.php
+msgid "Starter kit MVP for capturing UTMs and adding attribution to the WhatsApp message."
+msgstr "Starter kit MVP para capturar UTMs y añadir atribución al mensaje de WhatsApp."
+
+#: admin/settings-page.php
+msgid "Save changes"
+msgstr "Guardar cambios"
+
+#: admin/settings-page.php
+msgid "Quick setup"
+msgstr "Implementación rápida"
+
+#: admin/settings-page.php
+msgid "Set your WhatsApp number and save."
+msgstr "Configura el número de WhatsApp y guarda."
+
+#: admin/settings-page.php
+msgid "If using existing buttons, define the CSS selector."
+msgstr "Si usarás botones existentes, define el selector CSS."
+
+#: admin/settings-page.php
+msgid "If using the shortcode, insert [wa_lead_button] on any page."
+msgstr "Si usarás el shortcode, inserta [wa_lead_button] en cualquier página."
+
+#: admin/settings-page.php
+msgid "Test with a URL that includes UTM parameters, for example ?utm_source=google&utm_medium=cpc&utm_campaign=test"
+msgstr "Prueba con una URL que incluya UTM, por ejemplo ?utm_source=google&utm_medium=cpc&utm_campaign=test"
+
+#: admin/settings-page.php
+msgid "Placeholder reference"
+msgstr "Vista previa de placeholders"

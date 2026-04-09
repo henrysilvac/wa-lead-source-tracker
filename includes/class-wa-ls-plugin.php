@@ -5,6 +5,7 @@ if (!defined('ABSPATH')) {
 
 class WA_LS_Plugin {
     public function init() {
+        add_action('plugins_loaded', [$this, 'load_textdomain']);
         add_action('admin_menu', [$this, 'register_admin_menu']);
         add_action('admin_init', ['WA_LS_Settings', 'register_settings']);
         add_action('admin_enqueue_scripts', [$this, 'enqueue_admin_assets']);
@@ -13,10 +14,18 @@ class WA_LS_Plugin {
         add_shortcode('wa_lead_button', ['WA_LS_Shortcode', 'render']);
     }
 
+    public function load_textdomain() {
+        load_plugin_textdomain(
+            'wa-lead-source-tracker',
+            false,
+            dirname(plugin_basename(WA_LS_PLUGIN_FILE)) . '/languages'
+        );
+    }
+
     public function register_admin_menu() {
         add_options_page(
-            __('WA Lead Source Tracker', 'wa-lead-source-tracker'),
-            __('WA Lead Source Tracker', 'wa-lead-source-tracker'),
+            'WA Lead Source Tracker',
+            'WA Lead Source Tracker',
             'manage_options',
             'wa-lead-source-tracker',
             [$this, 'render_settings_page']
@@ -81,7 +90,13 @@ class WA_LS_Plugin {
             'debug' => !empty($settings['debug']),
             'storageKey' => 'wa_ls_data',
             'siteUrl' => home_url('/'),
-            'fallbackLabel' => __('N/D', 'wa-lead-source-tracker'),
+            'fallbackLabel' => __('N/A', 'wa-lead-source-tracker'),
+            'channels' => [
+                'google_ads' => __('Google Ads', 'wa-lead-source-tracker'),
+                'meta_ads'   => __('Meta Ads', 'wa-lead-source-tracker'),
+                'organic'    => __('Organic', 'wa-lead-source-tracker'),
+                'referral'   => __('Referral', 'wa-lead-source-tracker'),
+            ],
         ]);
     }
 
@@ -96,7 +111,7 @@ class WA_LS_Plugin {
         }
 
         echo '<div class="notice notice-info"><p>';
-        echo esc_html__('Starter kit MVP instalado. Usa el shortcode [wa_lead_button] o define un selector CSS para reutilizar botones existentes.', 'wa-lead-source-tracker');
+        echo esc_html__('Starter kit installed. Use the [wa_lead_button] shortcode or define a CSS selector to reuse existing buttons.', 'wa-lead-source-tracker');
         echo '</p></div>';
     }
 }
