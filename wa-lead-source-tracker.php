@@ -3,7 +3,7 @@
  * Plugin Name: WA Lead Source Tracker
  * Plugin URI: https://henry.silva.llc/
  * Description: Captura UTMs y click IDs, los persiste en el navegador y los inyecta dinámicamente en enlaces de WhatsApp.
- * Version: 0.4.0
+ * Version: 0.5.0
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: Henry Silva
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('WA_LS_VERSION', '0.4.0');
+define('WA_LS_VERSION', '0.5.0');
 define('WA_LS_PLUGIN_FILE', __FILE__);
 define('WA_LS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('WA_LS_PLUGIN_URL', plugin_dir_url(__FILE__));
