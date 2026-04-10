@@ -4,7 +4,7 @@ Tags: whatsapp, utm, tracking, leads, attribution
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 0.5.3
+Stable tag: 0.5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Author URI: https://henry.silva.llc/
@@ -95,8 +95,11 @@ Español: Las líneas de la plantilla cuyo placeholder no tenga valor capturado 
 
 == Changelog ==
 
+= 0.5.4 =
+* Fix Joinchat integration: intercept click on document (capture phase) instead of updating data-settings DOM attribute, since Joinchat caches settings in memory on init.
+
 = 0.5.3 =
-* Joinchat plugin compatibility: selector targeting .joinchat now updates message_send inside data-settings JSON instead of trying to set href on a div.
+* Joinchat plugin compatibility: selector targeting .joinchat updates message_send inside data-settings JSON.
 
 = 0.5.2 =
 * Replaced emoji with WhatsApp bold markdown (*[...]*) to avoid encoding corruption across all devices and WP sanitization pipeline.

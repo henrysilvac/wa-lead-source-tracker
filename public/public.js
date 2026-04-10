@@ -203,19 +203,29 @@
     }
     if (!('message_send' in settings)) return false;
 
-    var message = buildMessage(wa_ls_config.template, data);
+    var phone = String(settings.telephone || wa_ls_config.phone || '').replace(/\D+/g, '');
+    if (!phone) return false;
 
-    // Actualizar ahora y también en cada click (por si Joinchat leyó el attr en init)
-    function updateSettings() {
-      settings.message_send = message;
-      button.setAttribute('data-settings', JSON.stringify(settings));
-    }
+    // Joinchat lee data-settings en su init y lo guarda en memoria,
+    // por lo que actualizar el atributo DOM llega tarde.
+    // Interceptamos el click en document (capture) para ejecutarnos antes que Joinchat.
+    document.addEventListener('click', function (e) {
+      if (!button.contains(e.target)) return;
 
-    updateSettings();
-    button.addEventListener('click', updateSettings, true);
+      e.stopImmediatePropagation();
+      e.preventDefault();
+
+      var message = buildMessage(wa_ls_config.template, data);
+      var url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(message);
+      window.open(url, '_blank', 'noopener,noreferrer');
+
+      if (wa_ls_config.debug) {
+        console.log('WA Lead Source Tracker: Joinchat interceptado.', { phone: phone, message: message });
+      }
+    }, true); // capture = true → se ejecuta antes que los handlers de Joinchat
 
     if (wa_ls_config.debug) {
-      console.log('WA Lead Source Tracker: Joinchat message_send updated.', message);
+      console.log('WA Lead Source Tracker: Joinchat listener registrado.', button);
     }
     return true;
   }
