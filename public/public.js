@@ -192,6 +192,34 @@
     return String(wa_ls_config.phone || '').replace(/\D+/g, '');
   }
 
+  function applyJoinchat(button, data) {
+    var raw = button.getAttribute('data-settings');
+    if (!raw) return false;
+    var settings;
+    try {
+      settings = JSON.parse(raw);
+    } catch (e) {
+      return false;
+    }
+    if (!('message_send' in settings)) return false;
+
+    var message = buildMessage(wa_ls_config.template, data);
+
+    // Actualizar ahora y también en cada click (por si Joinchat leyó el attr en init)
+    function updateSettings() {
+      settings.message_send = message;
+      button.setAttribute('data-settings', JSON.stringify(settings));
+    }
+
+    updateSettings();
+    button.addEventListener('click', updateSettings, true);
+
+    if (wa_ls_config.debug) {
+      console.log('WA Lead Source Tracker: Joinchat message_send updated.', message);
+    }
+    return true;
+  }
+
   function applyToButtons(data) {
     const selector = wa_ls_config.mode === 'shortcode'
       ? '.wa-ls-button'
@@ -212,10 +240,19 @@
     }
 
     buttons.forEach(function (button) {
-      const phone = resolvePhone(button);
-      if (!phone) {
+      // Joinchat: elemento con data-settings que contiene message_send
+      if (applyJoinchat(button, data)) return;
+
+      // Elemento <a> estándar
+      if (button.tagName.toLowerCase() !== 'a') {
+        if (wa_ls_config.debug) {
+          console.warn('WA Lead Source Tracker: el elemento no es <a> ni Joinchat, ignorado.', button);
+        }
         return;
       }
+
+      const phone = resolvePhone(button);
+      if (!phone) return;
 
       const message = buildMessage(wa_ls_config.template, data);
       const url = 'https://wa.me/' + encodeURIComponent(phone) + '?text=' + encodeURIComponent(message);

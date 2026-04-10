@@ -4,7 +4,7 @@ Tags: whatsapp, utm, tracking, leads, attribution
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 0.5.2
+Stable tag: 0.5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Author URI: https://henry.silva.llc/
@@ -94,6 +94,9 @@ English: Lines in the message template whose placeholder has no captured value a
 Español: Las líneas de la plantilla cuyo placeholder no tenga valor capturado se eliminan automáticamente del mensaje de WhatsApp.
 
 == Changelog ==
+
+= 0.5.3 =
+* Joinchat plugin compatibility: selector targeting .joinchat now updates message_send inside data-settings JSON instead of trying to set href on a div.
 
 = 0.5.2 =
 * Replaced emoji with WhatsApp bold markdown (*[...]*) to avoid encoding corruption across all devices and WP sanitization pipeline.
