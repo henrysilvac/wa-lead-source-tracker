@@ -8,6 +8,17 @@
   const STORAGE_KEY = wa_ls_config.storageKey || 'wa_ls_data';
   const FALLBACK_LABEL = wa_ls_config.fallbackLabel || 'N/D';
 
+  function isExternalReferrer(referrer) {
+    if (!referrer) return false;
+    try {
+      var siteOrigin = new URL(wa_ls_config.siteUrl).origin;
+      var referrerOrigin = new URL(referrer).origin;
+      return referrerOrigin !== siteOrigin;
+    } catch (e) {
+      return false;
+    }
+  }
+
   function getParams() {
     const p = new URLSearchParams(window.location.search);
     return {
@@ -20,6 +31,7 @@
       gbraid: p.get('gbraid') || '',
       wbraid: p.get('wbraid') || '',
       fbclid: p.get('fbclid') || '',
+      referrer: isExternalReferrer(document.referrer) ? document.referrer : '',
       landing_page: window.location.href,
       captured_at: new Date().toISOString()
     };
@@ -43,7 +55,8 @@
       data.gclid,
       data.gbraid,
       data.wbraid,
-      data.fbclid
+      data.fbclid,
+      data.referrer
     ].some(Boolean);
   }
 
@@ -88,7 +101,7 @@
       return ch.organic || 'Organic';
     }
 
-    if (medium === 'referral') {
+    if (medium === 'referral' || isExternalReferrer(data.referrer)) {
       return ch.referral || 'Referral';
     }
 
@@ -107,6 +120,7 @@
       gbraid: data.gbraid || FALLBACK_LABEL,
       wbraid: data.wbraid || FALLBACK_LABEL,
       fbclid: data.fbclid || FALLBACK_LABEL,
+      referrer: data.referrer || FALLBACK_LABEL,
       landing_page: data.landing_page || window.location.href,
       captured_at: data.captured_at || new Date().toISOString()
     };
@@ -127,6 +141,7 @@
       '{gbraid}': data.gbraid,
       '{wbraid}': data.wbraid,
       '{fbclid}': data.fbclid,
+      '{referrer}': data.referrer,
       '{landing_page}': data.landing_page,
       '{captured_at}': data.captured_at
     };
@@ -143,6 +158,7 @@
       '{gbraid}': !!raw.gbraid,
       '{wbraid}': !!raw.wbraid,
       '{fbclid}': !!raw.fbclid,
+      '{referrer}': !!raw.referrer,
       '{landing_page}': true,
       '{captured_at}': true
     };

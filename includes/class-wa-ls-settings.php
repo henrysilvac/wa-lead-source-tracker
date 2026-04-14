@@ -130,7 +130,7 @@ class WA_LS_Settings {
             case 'message_template':
                 ?>
                 <textarea name="<?php echo esc_attr(WA_LS_OPTION_KEY); ?>[message_template]" rows="8" class="large-text code"><?php echo esc_textarea($settings['message_template']); ?></textarea>
-                <p class="description"><?php esc_html_e('Available placeholders: {channel}, {utm_source}, {utm_medium}, {utm_campaign}, {utm_content}, {utm_term}, {gclid}, {gbraid}, {wbraid}, {fbclid}, {landing_page}, {captured_at}', 'wa-lead-source-tracker'); ?></p>
+                <p class="description"><?php esc_html_e('Available placeholders: {channel}, {utm_source}, {utm_medium}, {utm_campaign}, {utm_content}, {utm_term}, {gclid}, {gbraid}, {wbraid}, {fbclid}, {referrer}, {landing_page}, {captured_at}', 'wa-lead-source-tracker'); ?></p>
                 <?php
                 break;
         }
