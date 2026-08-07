@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Editor / IDE
+*.code-workspace
+.vscode/
+.idea/
+
+# OS / temp
+Thumbs.db
+*.log
+
+# Dependencies (if ever introduced)
+node_modules/
+vendor/
