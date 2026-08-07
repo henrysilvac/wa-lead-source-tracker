@@ -11,6 +11,7 @@ class WA_LS_Plugin {
         add_action('admin_init', ['WA_LS_Settings', 'register_settings']);
         add_action('admin_enqueue_scripts', [$this, 'enqueue_admin_assets']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_public_assets']);
+        add_action('wp_footer', [$this, 'render_floating_button']);
         add_action('admin_notices', [$this, 'render_admin_notice']);
         add_shortcode('wa_lead_button', ['WA_LS_Shortcode', 'render']);
 
@@ -117,7 +118,8 @@ class WA_LS_Plugin {
             'phone' => isset($settings['phone']) ? (string) $settings['phone'] : '',
             'template' => isset($settings['message_template']) ? (string) $settings['message_template'] : '',
             'selector' => isset($settings['selector']) ? (string) $settings['selector'] : '.js-whatsapp-track',
-            'mode' => isset($settings['mode']) ? (string) $settings['mode'] : 'selector',
+            'floatingEnabled' => !empty($settings['floating_enabled']),
+            'selectorEnabled' => !empty($settings['selector_enabled']),
             'debug' => !empty($settings['debug']),
             'storageKey' => 'wa_ls_data',
             'siteUrl' => home_url('/'),
@@ -131,6 +133,28 @@ class WA_LS_Plugin {
         ]);
     }
 
+    public function render_floating_button() {
+        $settings = WA_LS_Settings::get_settings();
+
+        if (empty($settings['enabled']) || empty($settings['floating_enabled'])) {
+            return;
+        }
+
+        $phone = isset($settings['phone']) ? preg_replace('/\D+/', '', (string) $settings['phone']) : '';
+        if (!$phone) {
+            return;
+        }
+
+        $label = __('Chat on WhatsApp', 'wa-lead-source-tracker');
+
+        printf(
+            '<a href="%1$s" class="wa-ls-floating-button" data-wa-phone="%2$s" aria-label="%3$s" title="%3$s"><svg viewBox="0 0 24 24" width="28" height="28" fill="#fff" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2c-5.523 0-9.999 4.476-9.999 9.999 0 1.764.464 3.49 1.346 5.006L2 22l5.107-1.34a9.96 9.96 0 004.894 1.24h.005c5.523 0 9.999-4.476 9.999-9.999S17.524 2 12.001 2zm0 18.164a8.13 8.13 0 01-4.138-1.132l-.297-.176-3.03.795.81-2.955-.193-.303a8.11 8.11 0 01-1.253-4.394c0-4.482 3.648-8.13 8.131-8.13 4.482 0 8.13 3.648 8.13 8.13 0 4.483-3.648 8.165-8.16 8.165z"/></svg></a>',
+            esc_url('https://wa.me/' . $phone),
+            esc_attr($phone),
+            esc_attr($label)
+        );
+    }
+
     public function render_admin_notice() {
         if (!current_user_can('manage_options')) {
             return;
@@ -142,7 +166,7 @@ class WA_LS_Plugin {
         }
 
         echo '<div class="notice notice-info"><p>';
-        echo esc_html__('Starter kit installed. Use the [wa_lead_button] shortcode or define a CSS selector to reuse existing buttons.', 'wa-lead-source-tracker');
+        echo esc_html__('Set up how the WhatsApp button appears below: turn on the floating button for a zero-setup button, add tracking to a button you already have with CSS Selector, or insert the [wa_lead_button] shortcode anywhere. These can be combined.', 'wa-lead-source-tracker');
         echo '</p></div>';
     }
 }

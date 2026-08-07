@@ -270,19 +270,35 @@
   }
 
   function applyToButtons(data) {
-    const selector = wa_ls_config.mode === 'shortcode'
-      ? '.wa-ls-button'
-      : (wa_ls_config.selector || '.js-whatsapp-track');
-    let buttons = [];
-
-    try {
-      buttons = document.querySelectorAll(selector);
-    } catch (e) {
-      if (wa_ls_config.debug) {
-        console.warn('WA Lead Source Tracker: selector inválido.', selector);
-      }
-      return;
+    // El botón de shortcode siempre está activo; flotante y selector CSS son
+    // interruptores independientes y pueden combinarse entre sí.
+    var selectorGroups = ['.wa-ls-button'];
+    if (wa_ls_config.floatingEnabled) {
+      selectorGroups.push('.wa-ls-floating-button');
     }
+    if (wa_ls_config.selectorEnabled && wa_ls_config.selector) {
+      selectorGroups.push(wa_ls_config.selector);
+    }
+
+    var seen = new Set();
+    var buttons = [];
+    selectorGroups.forEach(function (sel) {
+      var found;
+      try {
+        found = document.querySelectorAll(sel);
+      } catch (e) {
+        if (wa_ls_config.debug) {
+          console.warn('WA Lead Source Tracker: selector inválido, se omite.', sel);
+        }
+        return;
+      }
+      found.forEach(function (el) {
+        if (!seen.has(el)) {
+          seen.add(el);
+          buttons.push(el);
+        }
+      });
+    });
 
     if (!buttons.length) {
       return;

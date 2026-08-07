@@ -2,8 +2,8 @@
 /**
  * Plugin Name: WA Lead Source Tracker
  * Plugin URI: https://henry.silva.llc/
- * Description: Captures UTMs and click IDs, persists them in the browser, and injects them dynamically into WhatsApp links. <a href="options-general.php?page=wa-lead-source-tracker">Configure the plugin</a>.
- * Version: 0.5.8
+ * Description: Captures UTMs and click IDs, keeps them across page visits, and adds them to your WhatsApp messages via an auto-injected floating button, your existing buttons, and/or a shortcode — combinable. <a href="options-general.php?page=wa-lead-source-tracker">Configure the plugin</a>.
+ * Version: 0.6.0
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: Henry Silva
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('WA_LS_VERSION', '0.5.8');
+define('WA_LS_VERSION', '0.6.0');
 define('WA_LS_PLUGIN_FILE', __FILE__);
 define('WA_LS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('WA_LS_PLUGIN_URL', plugin_dir_url(__FILE__));

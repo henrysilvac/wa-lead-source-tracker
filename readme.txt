@@ -4,12 +4,12 @@ Tags: whatsapp, utm, tracking, leads, attribution
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 0.5.8
+Stable tag: 0.6.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Author URI: https://henry.silva.llc/
 
-Captures UTMs and click IDs, persists them in the browser, and dynamically injects them into WhatsApp links.
+Captures UTMs and click IDs and adds them to your WhatsApp messages via a floating button, existing buttons, or a shortcode.
 
 == Description ==
 
@@ -23,7 +23,7 @@ WA Lead Source Tracker captures UTM parameters and click IDs (gclid, gbraid, wbr
 * First-touch attribution: data is preserved across pages even if subsequent visits have no UTMs
 * Automatic channel detection: Google Ads, Meta Ads, Organic, Referral
 * Lines with no captured data are omitted from the WhatsApp message
-* Two operation modes: CSS Selector (reuse existing buttons) or Shortcode (plugin-generated buttons)
+* Combinable button placements: Floating button (auto-injected, zero setup) and CSS Selector (reuse existing buttons) can both be turned on at once, plus the always-available [wa_lead_button] shortcode — all sharing the same number and tracking
 * Customizable message template with placeholders
 * Multilingual: English and Spanish included. Language is set automatically based on the WordPress site locale.
 * Debug mode: logs captured data to the browser console
@@ -44,7 +44,7 @@ WA Lead Source Tracker captura parámetros UTM y click IDs (gclid, gbraid, wbrai
 * Atribución first-touch: los datos se conservan entre páginas aunque visitas posteriores no traigan UTMs
 * Detección automática de canal: Google Ads, Meta Ads, Orgánico, Referral
 * Las líneas sin datos capturados se omiten del mensaje de WhatsApp
-* Dos modos de funcionamiento: Selector CSS (reutiliza botones existentes) o Shortcode (botones generados por el plugin)
+* Ubicaciones combinables del botón: Botón flotante (auto-inyectado, sin configuración adicional) y Selector CSS (reutiliza botones existentes) se pueden activar al mismo tiempo, además del shortcode [wa_lead_button] siempre disponible — todos comparten el mismo número y tracking
 * Plantilla de mensaje personalizable con placeholders
 * Multiidioma: incluye inglés y español. El idioma se establece automáticamente según el locale de la instalación de WordPress.
 * Modo debug: registra los datos capturados en la consola del navegador
@@ -60,8 +60,8 @@ WA Lead Source Tracker captura parámetros UTM y click IDs (gclid, gbraid, wbrai
 1. Upload the plugin zip from Plugins > Add New > Upload Plugin.
 2. Activate the plugin.
 3. Go to Settings > WA Lead Source Tracker.
-4. Set your WhatsApp number, operation mode, CSS selector, and message template.
-5. Use the [wa_lead_button] shortcode or apply the configured CSS class to existing buttons.
+4. Set your WhatsApp number and message template.
+5. Turn on "Floating button" for a ready-to-use button with no further setup, and/or turn on "CSS Selector" with the CSS class of an existing button to add tracking to it — both can be enabled together. The [wa_lead_button] shortcode is always available regardless of these toggles.
 6. Test with a URL containing UTM parameters, e.g. ?utm_source=google&utm_medium=cpc&utm_campaign=test
 
 === Español ===
@@ -69,17 +69,17 @@ WA Lead Source Tracker captura parámetros UTM y click IDs (gclid, gbraid, wbrai
 1. Sube el zip del plugin desde Plugins > Añadir nuevo > Subir plugin.
 2. Activa el plugin.
 3. Ve a Ajustes > WA Lead Source Tracker.
-4. Configura número de WhatsApp, modo de funcionamiento, selector CSS y plantilla de mensaje.
-5. Usa el shortcode [wa_lead_button] o aplica la clase CSS configurada a botones existentes.
+4. Configura número de WhatsApp y plantilla de mensaje.
+5. Activa "Botón flotante" para un botón listo para usar sin configuración adicional, y/o activa "Selector CSS" con la clase CSS de un botón existente para agregarle tracking — ambos se pueden activar a la vez. El shortcode [wa_lead_button] siempre está disponible sin importar estos interruptores.
 6. Prueba con una URL que incluya UTMs, por ejemplo ?utm_source=google&utm_medium=cpc&utm_campaign=test
 
 == Frequently Asked Questions ==
 
 = Does it work with any WhatsApp button? / ¿Funciona con cualquier botón de WhatsApp? =
 
-English: Yes. In CSS Selector mode, set the selector to match your existing buttons (e.g. a[href*="wa.me"]) and the plugin will update their href automatically.
+English: Yes. Enable "CSS Selector" and set the selector to match your existing buttons (e.g. a[href*="wa.me"]) and the plugin will update their href automatically. This can be combined with the floating button at the same time.
 
-Español: Sí. En modo Selector CSS, define el selector para que coincida con tus botones existentes (p. ej. a[href*="wa.me"]) y el plugin actualizará su href automáticamente.
+Español: Sí. Activa "Selector CSS" y define el selector para que coincida con tus botones existentes (p. ej. a[href*="wa.me"]) y el plugin actualizará su href automáticamente. Esto se puede combinar con el botón flotante al mismo tiempo.
 
 = What is first-touch attribution? / ¿Qué es la atribución first-touch? =
 
@@ -94,6 +94,11 @@ English: Lines in the message template whose placeholder has no captured value a
 Español: Las líneas de la plantilla cuyo placeholder no tenga valor capturado se eliminan automáticamente del mensaje de WhatsApp.
 
 == Changelog ==
+
+= 0.6.0 =
+* Added a floating WhatsApp button that the plugin can auto-inject on every page (bottom-right, standard chat-bubble style), with no need for an existing button, link, or shortcode placement.
+* Replaced the old single, mutually-exclusive "operation mode" with independent, combinable toggles: Floating button and CSS Selector can now be turned on at the same time (e.g. keep tracking your existing button and also show the floating button on pages that don't have one). The [wa_lead_button] shortcode is now always available regardless of these toggles. Existing sites are migrated automatically — no action needed.
+* Reorganized the settings page into numbered sections (Enable & number, Where the button appears, Message, Advanced) with a plain-language guide explaining when to turn on each option.
 
 = 0.5.8 =
 * Added a settings link directly inside the plugin's description on the Plugins screen (in addition to the existing "Settings" row action), pointing to Settings > WA Lead Source Tracker.

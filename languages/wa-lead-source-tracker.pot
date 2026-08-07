@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WA Lead Source Tracker plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WA Lead Source Tracker 0.4.0\n"
+"Project-Id-Version: WA Lead Source Tracker 0.6.0\n"
 "Report-Msgid-Bugs-To: https://henry.silva.llc/\n"
 "POT-Creation-Date: 2026-04-09T00:00:00+00:00\n"
 "MIME-Version: 1.0\n"
@@ -18,11 +18,19 @@ msgid "WA Lead Source Tracker"
 msgstr ""
 
 #. Description
-msgid "Captures UTMs and click IDs, persists them in the browser, and injects them dynamically into WhatsApp links. <a href=\"options-general.php?page=wa-lead-source-tracker\">Configure the plugin</a>."
+msgid "Captures UTMs and click IDs, keeps them across page visits, and adds them to your WhatsApp messages via an auto-injected floating button, your existing buttons, and/or a shortcode — combinable. <a href=\"options-general.php?page=wa-lead-source-tracker\">Configure the plugin</a>."
 msgstr ""
 
 #: includes/class-wa-ls-plugin.php
-msgid "Starter kit installed. Use the [wa_lead_button] shortcode or define a CSS selector to reuse existing buttons."
+msgid "Settings"
+msgstr ""
+
+#: includes/class-wa-ls-plugin.php
+msgid "Chat on WhatsApp"
+msgstr ""
+
+#: includes/class-wa-ls-plugin.php
+msgid "Set up how the WhatsApp button appears below: turn on the floating button for a zero-setup button, add tracking to a button you already have with CSS Selector, or insert the [wa_lead_button] shortcode anywhere. These can be combined."
 msgstr ""
 
 #: includes/class-wa-ls-plugin.php
@@ -50,7 +58,7 @@ msgid "Hi, I'd like more information.\n\n*[Do not modify — reference code to a
 msgstr ""
 
 #: includes/class-wa-ls-settings.php
-msgid "General Settings"
+msgid "1. Enable & WhatsApp number"
 msgstr ""
 
 #: includes/class-wa-ls-settings.php
@@ -62,31 +70,11 @@ msgid "WhatsApp number"
 msgstr ""
 
 #: includes/class-wa-ls-settings.php
-msgid "Operation mode"
+msgid "2. Where should the WhatsApp button appear?"
 msgstr ""
 
 #: includes/class-wa-ls-settings.php
-msgid "CSS selector"
-msgstr ""
-
-#: includes/class-wa-ls-settings.php
-msgid "Message template"
-msgstr ""
-
-#: includes/class-wa-ls-settings.php
-msgid "Debug mode"
-msgstr ""
-
-#: includes/class-wa-ls-settings.php
-msgid "Enable frontend functionality."
-msgstr ""
-
-#: includes/class-wa-ls-settings.php
-msgid "Show data in browser console."
-msgstr ""
-
-#: includes/class-wa-ls-settings.php
-msgid "Use international format without symbols or spaces."
+msgid "Floating button"
 msgstr ""
 
 #: includes/class-wa-ls-settings.php
@@ -94,19 +82,91 @@ msgid "CSS Selector"
 msgstr ""
 
 #: includes/class-wa-ls-settings.php
-msgid "Plugin shortcode"
+msgid "CSS selector value"
 msgstr ""
 
 #: includes/class-wa-ls-settings.php
-msgid "CSS Selector reuses existing buttons. Shortcode creates plugin buttons."
+msgid "3. Message & attribution data"
 msgstr ""
 
 #: includes/class-wa-ls-settings.php
-msgid "Example: .js-whatsapp-track or a[href*=\"wa.me\"]"
+msgid "Message template"
 msgstr ""
 
 #: includes/class-wa-ls-settings.php
-msgid "Available placeholders: {channel}, {utm_source}, {utm_medium}, {utm_campaign}, {utm_content}, {utm_term}, {gclid}, {gbraid}, {wbraid}, {fbclid}, {landing_page}, {captured_at}"
+msgid "4. Advanced"
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "Debug mode"
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "Turn the plugin on and set the WhatsApp number that receives messages when no button-specific number is defined."
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "These options are independent — turn on any combination that matches your situation. All of them share the same WhatsApp number and message template above."
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "Floating button — turn this on if you don't have a WhatsApp button yet."
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "Automatically adds a ready-made button to every page. Zero setup. If you also have an existing WhatsApp button elsewhere (theme, page builder, another plugin) that isn't tracked via CSS Selector below, turning this on too will show two buttons."
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "CSS Selector — turn this on if you already have a working WhatsApp button or link."
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "Adds tracking to your existing button (from your theme, a page builder, or another plugin such as Joinchat) instead of replacing it. Requires the CSS selector that matches your button below. Can be combined with the floating button — for example, keep your existing button tracked and add the floating button on pages that don't have one."
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "Shortcode — always available, no toggle needed."
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "Insert [wa_lead_button] in any page, post, or widget to render a plugin-generated button exactly where you want it. Works independently of the two toggles above."
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "This is the message pre-filled in WhatsApp when a visitor clicks the button. Placeholders are replaced with the captured data; a line is removed automatically if its placeholder has no data (e.g. no {gclid} on a visit with no Google Ads click ID)."
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "Settings for troubleshooting. Keep debug mode off in production; turn it on temporarily to confirm the plugin is capturing UTMs correctly."
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "Enable frontend functionality. Turn off to fully disable the button and tracking without deactivating the plugin."
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "Show captured data in the browser console (for troubleshooting only)."
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "Automatically add the floating WhatsApp button to every page."
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "Add tracking to existing WhatsApp buttons/links matched by the CSS selector below."
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "International format, digits only (country code + number, no + no spaces)."
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "Only used when \"CSS Selector\" above is enabled — ignored otherwise. Example: .js-whatsapp-track or a[href*=\"wa.me\"]"
+msgstr ""
+
+#: includes/class-wa-ls-settings.php
+msgid "Available placeholders: {channel}, {utm_source}, {utm_medium}, {utm_campaign}, {utm_content}, {utm_term}, {gclid}, {gbraid}, {wbraid}, {fbclid}, {referrer}, {landing_page}, {captured_at}"
 msgstr ""
 
 #: includes/class-wa-ls-shortcode.php
@@ -114,7 +174,7 @@ msgid "Write to us on WhatsApp"
 msgstr ""
 
 #: admin/settings-page.php
-msgid "Starter kit MVP for capturing UTMs and adding attribution to the WhatsApp message."
+msgid "Captures UTM parameters and click IDs, keeps them across page visits (first-touch attribution), and automatically includes them in the WhatsApp message of your floating button, your existing buttons, and/or the [wa_lead_button] shortcode."
 msgstr ""
 
 #: admin/settings-page.php
@@ -126,15 +186,11 @@ msgid "Quick setup"
 msgstr ""
 
 #: admin/settings-page.php
-msgid "Set your WhatsApp number and save."
+msgid "Set your WhatsApp number and save (section 1)."
 msgstr ""
 
 #: admin/settings-page.php
-msgid "If using existing buttons, define the CSS selector."
-msgstr ""
-
-#: admin/settings-page.php
-msgid "If using the shortcode, insert [wa_lead_button] on any page."
+msgid "Turn on the button placement(s) that match your situation, following the guide in section 2."
 msgstr ""
 
 #: admin/settings-page.php
@@ -143,8 +199,4 @@ msgstr ""
 
 #: admin/settings-page.php
 msgid "Placeholder reference"
-msgstr ""
-
-#: includes/class-wa-ls-plugin.php
-msgid "Settings"
 msgstr ""
