@@ -4,7 +4,7 @@ Tags: whatsapp, utm, tracking, leads, attribution
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 0.5.7
+Stable tag: 0.5.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Author URI: https://henry.silva.llc/
@@ -94,6 +94,10 @@ English: Lines in the message template whose placeholder has no captured value a
 Español: Las líneas de la plantilla cuyo placeholder no tenga valor capturado se eliminan automáticamente del mensaje de WhatsApp.
 
 == Changelog ==
+
+= 0.5.8 =
+* Added a settings link directly inside the plugin's description on the Plugins screen (in addition to the existing "Settings" row action), pointing to Settings > WA Lead Source Tracker.
+* Plugin header Description is now sourced in English and translated to Spanish, consistent with the rest of the plugin's i18n strings.
 
 = 0.5.7 =
 * Fix: regional Spanish site locales (es_PE, es_MX, es_AR, es_CO, etc.) fell back to English because the bundled translation only matched es_ES exactly. Any es_* locale now maps to the bundled es_ES translation.

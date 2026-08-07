@@ -17,6 +17,10 @@ msgstr ""
 msgid "WA Lead Source Tracker"
 msgstr ""
 
+#. Description
+msgid "Captures UTMs and click IDs, persists them in the browser, and injects them dynamically into WhatsApp links. <a href=\"options-general.php?page=wa-lead-source-tracker\">Configure the plugin</a>."
+msgstr ""
+
 #: includes/class-wa-ls-plugin.php
 msgid "Starter kit installed. Use the [wa_lead_button] shortcode or define a CSS selector to reuse existing buttons."
 msgstr ""
