@@ -140,3 +140,7 @@ msgstr ""
 #: admin/settings-page.php
 msgid "Placeholder reference"
 msgstr ""
+
+#: includes/class-wa-ls-plugin.php
+msgid "Settings"
+msgstr ""

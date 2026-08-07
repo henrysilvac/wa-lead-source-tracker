@@ -45,7 +45,7 @@ msgstr "Referral"
 
 #: includes/class-wa-ls-settings.php
 msgid "Hi, I'd like more information.\n\n*[Do not modify — reference code to assign you the right advisor]:*\n[channel:{channel}]\n[source:{utm_source}]\n[medium:{utm_medium}]\n[campaign:{utm_campaign}]\n[term:{utm_term}]\n[gclid:{gclid}]"
-msgstr "Hola, quiero más información.\n\n*[No modificar — código de referencia para asignarte el asesor correcto]:*\n[canal:{channel}]\n[source:{utm_source}]\n[medium:{utm_medium}]\n[campaign:{utm_campaign}]\n[term:{utm_term}]\n[gclid:{gclid}]"
+msgstr "Hola, quiero más información.\n\n*[No modificar — código de referencia para asignarte el asesor correcto]:*\n[canal:{channel}]\n[fuente:{utm_source}]\n[medio:{utm_medium}]\n[campaña:{utm_campaign}]\n[término:{utm_term}]\n[gclid:{gclid}]"
 
 #: includes/class-wa-ls-settings.php
 msgid "General Settings"
@@ -142,3 +142,7 @@ msgstr "Prueba con una URL que incluya UTM, por ejemplo ?utm_source=google&utm_m
 #: admin/settings-page.php
 msgid "Placeholder reference"
 msgstr "Vista previa de placeholders"
+
+#: includes/class-wa-ls-plugin.php
+msgid "Settings"
+msgstr "Ajustes"

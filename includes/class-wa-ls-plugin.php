@@ -5,6 +5,7 @@ if (!defined('ABSPATH')) {
 
 class WA_LS_Plugin {
     public function init() {
+        add_filter('plugin_locale', [$this, 'filter_plugin_locale'], 10, 2);
         add_action('plugins_loaded', [$this, 'load_textdomain']);
         add_action('admin_menu', [$this, 'register_admin_menu']);
         add_action('admin_init', ['WA_LS_Settings', 'register_settings']);
@@ -12,6 +13,26 @@ class WA_LS_Plugin {
         add_action('wp_enqueue_scripts', [$this, 'enqueue_public_assets']);
         add_action('admin_notices', [$this, 'render_admin_notice']);
         add_shortcode('wa_lead_button', ['WA_LS_Shortcode', 'render']);
+
+        $plugin_basename = plugin_basename(WA_LS_PLUGIN_FILE);
+        add_filter('plugin_action_links_' . $plugin_basename, [$this, 'add_settings_link']);
+    }
+
+    /**
+     * Bundled translations only ship an es_ES file. WordPress requires an exact
+     * locale match, so regional variants (es_PE, es_MX, es_AR, ...) would silently
+     * fall back to English. Map any es_* site locale to the bundled es_ES file.
+     */
+    public function filter_plugin_locale($locale, $domain) {
+        if ($domain !== 'wa-lead-source-tracker') {
+            return $locale;
+        }
+
+        if (strpos($locale, 'es_') === 0) {
+            return 'es_ES';
+        }
+
+        return $locale;
     }
 
     public function load_textdomain() {
@@ -20,6 +41,16 @@ class WA_LS_Plugin {
             false,
             dirname(plugin_basename(WA_LS_PLUGIN_FILE)) . '/languages'
         );
+    }
+
+    public function add_settings_link($links) {
+        $settings_link = sprintf(
+            '<a href="%1$s">%2$s</a>',
+            esc_url(admin_url('options-general.php?page=wa-lead-source-tracker')),
+            esc_html__('Settings', 'wa-lead-source-tracker')
+        );
+        array_unshift($links, $settings_link);
+        return $links;
     }
 
     public function register_admin_menu() {
