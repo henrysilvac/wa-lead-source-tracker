@@ -4,7 +4,7 @@ Tags: whatsapp, utm, tracking, leads, attribution
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 0.5.4
+Stable tag: 0.5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Author URI: https://henry.silva.llc/
@@ -94,6 +94,12 @@ English: Lines in the message template whose placeholder has no captured value a
 Español: Las líneas de la plantilla cuyo placeholder no tenga valor capturado se eliminan automáticamente del mensaje de WhatsApp.
 
 == Changelog ==
+
+= 0.5.6 =
+* Fix: organic Google/Bing/Yahoo/DuckDuckGo/Baidu/Yandex/Ecosia search traffic without UTMs was misclassified as Referral instead of Organic. Search engine referrers are now detected and mapped to the Organic channel before the generic referral fallback.
+
+= 0.5.5 =
+* Added referral URL tracking via document.referrer: external referrers are captured and exposed via the {referrer} placeholder, and used as a fallback signal for Referral channel detection.
 
 = 0.5.4 =
 * Fix Joinchat integration: intercept click on document (capture phase) instead of updating data-settings DOM attribute, since Joinchat caches settings in memory on init.

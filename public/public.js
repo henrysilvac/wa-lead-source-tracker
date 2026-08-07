@@ -19,6 +19,21 @@
     }
   }
 
+  var SEARCH_ENGINE_HOSTS = ['google', 'bing', 'yahoo', 'duckduckgo', 'baidu', 'yandex', 'ecosia'];
+
+  function isSearchEngineReferrer(referrer) {
+    if (!referrer) return false;
+    try {
+      var hostname = new URL(referrer).hostname.toLowerCase();
+      var labels = hostname.split('.');
+      return SEARCH_ENGINE_HOSTS.some(function (engine) {
+        return labels.indexOf(engine) !== -1;
+      });
+    } catch (e) {
+      return false;
+    }
+  }
+
   function getParams() {
     const p = new URLSearchParams(window.location.search);
     return {
@@ -101,7 +116,15 @@
       return ch.organic || 'Organic';
     }
 
-    if (medium === 'referral' || isExternalReferrer(data.referrer)) {
+    if (medium === 'referral') {
+      return ch.referral || 'Referral';
+    }
+
+    if (isSearchEngineReferrer(data.referrer)) {
+      return ch.organic || 'Organic';
+    }
+
+    if (isExternalReferrer(data.referrer)) {
       return ch.referral || 'Referral';
     }
 
