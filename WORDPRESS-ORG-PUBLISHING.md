@@ -4,8 +4,8 @@ Reference guide to pick up in a future session. This is a manual process that re
 a personal wordpress.org account — nothing here can be automated by an assistant.
 
 Plugin slug: `capybara-seo-lead-source-tracker`
-(local dev folder is still named `wa-lead-source-tracker` — that's fine, only the ZIP's
-internal root folder name and the readme/header need to match the slug.)
+Local dev folder and GitHub repo (`github.com/henrysilvac/capybara-seo-lead-source-tracker`)
+are both named to match the slug.
 
 ## 0. Pre-flight checklist (plugin-specific)
 
@@ -65,12 +65,12 @@ Before packaging, check/fix these:
 ## 2. Package the plugin
 
 1. Validate `readme.txt` (see link above).
-2. Zip the plugin folder with the root directory renamed to the plugin **slug**
-   (not the local dev folder name), excluding dev-only files:
+2. The local dev folder is already named after the slug, so package it directly,
+   excluding dev-only files (the ZIP's top-level folder name must be the slug):
    ```bash
    cd /Users/henrysilvacastillo/Webs
    rm -rf /tmp/capybara-seo-lead-source-tracker
-   rsync -a wa-lead-source-tracker/ /tmp/capybara-seo-lead-source-tracker/ \
+   rsync -a capybara-seo-lead-source-tracker/ /tmp/capybara-seo-lead-source-tracker/ \
      --exclude ".git*" --exclude ".DS_Store" --exclude "*.docx" \
      --exclude "*.code-workspace" --exclude "WORDPRESS-ORG-PUBLISHING.md"
    cd /tmp
@@ -78,8 +78,7 @@ Before packaging, check/fix these:
    mv capybara-seo-lead-source-tracker.zip /Users/henrysilvacastillo/Webs/
    ```
    Do **not** include `.git`, `.gitignore`, `.DS_Store`, the spec `.docx`, the
-   `.code-workspace` file, or this guide in the public ZIP. The ZIP's top-level
-   folder name should be the slug, not `wa-lead-source-tracker`.
+   `.code-workspace` file, or this guide in the public ZIP.
 
 ## 3. Submit for review
 
