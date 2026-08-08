@@ -8,7 +8,7 @@ class WA_LS_Settings {
         return [
             'enabled' => 1,
             'phone' => '51999999999',
-            'message_template' => __("Hi, I'd like more information.\n\n*[Do not modify — reference code to assign you the right advisor]:*\n[channel:{channel}]\n[source:{utm_source}]\n[medium:{utm_medium}]\n[campaign:{utm_campaign}]\n[term:{utm_term}]\n[gclid:{gclid}]", 'wa-lead-source-tracker'),
+            'message_template' => __("Hi, I'd like more information.\n\n*[Do not modify — reference code to assign you the right advisor]:*\n[channel:{channel}]\n[source:{utm_source}]\n[medium:{utm_medium}]\n[campaign:{utm_campaign}]\n[term:{utm_term}]\n[gclid:{gclid}]", 'capybara-seo-lead-source-tracker'),
             'floating_enabled' => 1,
             'selector_enabled' => 0,
             'selector' => '.js-whatsapp-track',
@@ -46,34 +46,34 @@ class WA_LS_Settings {
 
         $sections = [
             'wa_ls_section_general' => [
-                'title'    => __('1. Enable & WhatsApp number', 'wa-lead-source-tracker'),
+                'title'    => __('1. Enable & WhatsApp number', 'capybara-seo-lead-source-tracker'),
                 'callback' => [__CLASS__, 'render_general_section_intro'],
                 'fields'   => [
-                    'enabled' => __('Enable plugin', 'wa-lead-source-tracker'),
-                    'phone'   => __('WhatsApp number', 'wa-lead-source-tracker'),
+                    'enabled' => __('Enable plugin', 'capybara-seo-lead-source-tracker'),
+                    'phone'   => __('WhatsApp number', 'capybara-seo-lead-source-tracker'),
                 ],
             ],
             'wa_ls_section_mode' => [
-                'title'    => __('2. Where should the WhatsApp button appear?', 'wa-lead-source-tracker'),
+                'title'    => __('2. Where should the WhatsApp button appear?', 'capybara-seo-lead-source-tracker'),
                 'callback' => [__CLASS__, 'render_mode_section_intro'],
                 'fields'   => [
-                    'floating_enabled' => __('Floating button', 'wa-lead-source-tracker'),
-                    'selector_enabled' => __('CSS Selector', 'wa-lead-source-tracker'),
-                    'selector'         => __('CSS selector value', 'wa-lead-source-tracker'),
+                    'floating_enabled' => __('Floating button', 'capybara-seo-lead-source-tracker'),
+                    'selector_enabled' => __('CSS Selector', 'capybara-seo-lead-source-tracker'),
+                    'selector'         => __('CSS selector value', 'capybara-seo-lead-source-tracker'),
                 ],
             ],
             'wa_ls_section_message' => [
-                'title'    => __('3. Message & attribution data', 'wa-lead-source-tracker'),
+                'title'    => __('3. Message & attribution data', 'capybara-seo-lead-source-tracker'),
                 'callback' => [__CLASS__, 'render_message_section_intro'],
                 'fields'   => [
-                    'message_template' => __('Message template', 'wa-lead-source-tracker'),
+                    'message_template' => __('Message template', 'capybara-seo-lead-source-tracker'),
                 ],
             ],
             'wa_ls_section_advanced' => [
-                'title'    => __('4. Advanced', 'wa-lead-source-tracker'),
+                'title'    => __('4. Advanced', 'capybara-seo-lead-source-tracker'),
                 'callback' => [__CLASS__, 'render_advanced_section_intro'],
                 'fields'   => [
-                    'debug' => __('Debug mode', 'wa-lead-source-tracker'),
+                    'debug' => __('Debug mode', 'capybara-seo-lead-source-tracker'),
                 ],
             ],
         ];
@@ -100,35 +100,35 @@ class WA_LS_Settings {
     }
 
     public static function render_general_section_intro() {
-        echo '<p class="description">' . esc_html__('Turn the plugin on and set the WhatsApp number that receives messages when no button-specific number is defined.', 'wa-lead-source-tracker') . '</p>';
+        echo '<p class="description">' . esc_html__('Turn the plugin on and set the WhatsApp number that receives messages when no button-specific number is defined.', 'capybara-seo-lead-source-tracker') . '</p>';
     }
 
     public static function render_mode_section_intro() {
         ?>
-        <p class="description"><?php esc_html_e('These options are independent — turn on any combination that matches your situation. All of them share the same WhatsApp number and message template above.', 'wa-lead-source-tracker'); ?></p>
+        <p class="description"><?php esc_html_e('These options are independent — turn on any combination that matches your situation. All of them share the same WhatsApp number and message template above.', 'capybara-seo-lead-source-tracker'); ?></p>
         <ul class="wa-ls-mode-guide">
             <li>
-                <strong><?php esc_html_e('Floating button — turn this on if you don\'t have a WhatsApp button yet.', 'wa-lead-source-tracker'); ?></strong>
-                <?php esc_html_e('Automatically adds a ready-made button to every page. Zero setup. If you also have an existing WhatsApp button elsewhere (theme, page builder, another plugin) that isn\'t tracked via CSS Selector below, turning this on too will show two buttons.', 'wa-lead-source-tracker'); ?>
+                <strong><?php esc_html_e('Floating button — turn this on if you don\'t have a WhatsApp button yet.', 'capybara-seo-lead-source-tracker'); ?></strong>
+                <?php esc_html_e('Automatically adds a ready-made button to every page. Zero setup. If you also have an existing WhatsApp button elsewhere (theme, page builder, another plugin) that isn\'t tracked via CSS Selector below, turning this on too will show two buttons.', 'capybara-seo-lead-source-tracker'); ?>
             </li>
             <li>
-                <strong><?php esc_html_e('CSS Selector — turn this on if you already have a working WhatsApp button or link.', 'wa-lead-source-tracker'); ?></strong>
-                <?php esc_html_e('Adds tracking to your existing button (from your theme, a page builder, or another plugin such as Joinchat) instead of replacing it. Requires the CSS selector that matches your button below. Can be combined with the floating button — for example, keep your existing button tracked and add the floating button on pages that don\'t have one.', 'wa-lead-source-tracker'); ?>
+                <strong><?php esc_html_e('CSS Selector — turn this on if you already have a working WhatsApp button or link.', 'capybara-seo-lead-source-tracker'); ?></strong>
+                <?php esc_html_e('Adds tracking to your existing button (from your theme, a page builder, or another plugin such as Joinchat) instead of replacing it. Requires the CSS selector that matches your button below. Can be combined with the floating button — for example, keep your existing button tracked and add the floating button on pages that don\'t have one.', 'capybara-seo-lead-source-tracker'); ?>
             </li>
             <li>
-                <strong><?php esc_html_e('Shortcode — always available, no toggle needed.', 'wa-lead-source-tracker'); ?></strong>
-                <?php esc_html_e('Insert [wa_lead_button] in any page, post, or widget to render a plugin-generated button exactly where you want it. Works independently of the two toggles above.', 'wa-lead-source-tracker'); ?>
+                <strong><?php esc_html_e('Shortcode — always available, no toggle needed.', 'capybara-seo-lead-source-tracker'); ?></strong>
+                <?php esc_html_e('Insert [wa_lead_button] in any page, post, or widget to render a plugin-generated button exactly where you want it. Works independently of the two toggles above.', 'capybara-seo-lead-source-tracker'); ?>
             </li>
         </ul>
         <?php
     }
 
     public static function render_message_section_intro() {
-        echo '<p class="description">' . esc_html__('This is the message pre-filled in WhatsApp when a visitor clicks the button. Placeholders are replaced with the captured data; a line is removed automatically if its placeholder has no data (e.g. no {gclid} on a visit with no Google Ads click ID).', 'wa-lead-source-tracker') . '</p>';
+        echo '<p class="description">' . esc_html__('This is the message pre-filled in WhatsApp when a visitor clicks the button. Placeholders are replaced with the captured data; a line is removed automatically if its placeholder has no data (e.g. no {gclid} on a visit with no Google Ads click ID).', 'capybara-seo-lead-source-tracker') . '</p>';
     }
 
     public static function render_advanced_section_intro() {
-        echo '<p class="description">' . esc_html__('Settings for troubleshooting. Keep debug mode off in production; turn it on temporarily to confirm the plugin is capturing UTMs correctly.', 'wa-lead-source-tracker') . '</p>';
+        echo '<p class="description">' . esc_html__('Settings for troubleshooting. Keep debug mode off in production; turn it on temporarily to confirm the plugin is capturing UTMs correctly.', 'capybara-seo-lead-source-tracker') . '</p>';
     }
 
     public static function sanitize_settings($input) {
@@ -164,10 +164,10 @@ class WA_LS_Settings {
             case 'floating_enabled':
             case 'selector_enabled':
                 $checkbox_labels = [
-                    'enabled'          => __('Enable frontend functionality. Turn off to fully disable the button and tracking without deactivating the plugin.', 'wa-lead-source-tracker'),
-                    'debug'            => __('Show captured data in the browser console (for troubleshooting only).', 'wa-lead-source-tracker'),
-                    'floating_enabled' => __('Automatically add the floating WhatsApp button to every page.', 'wa-lead-source-tracker'),
-                    'selector_enabled' => __('Add tracking to existing WhatsApp buttons/links matched by the CSS selector below.', 'wa-lead-source-tracker'),
+                    'enabled'          => __('Enable frontend functionality. Turn off to fully disable the button and tracking without deactivating the plugin.', 'capybara-seo-lead-source-tracker'),
+                    'debug'            => __('Show captured data in the browser console (for troubleshooting only).', 'capybara-seo-lead-source-tracker'),
+                    'floating_enabled' => __('Automatically add the floating WhatsApp button to every page.', 'capybara-seo-lead-source-tracker'),
+                    'selector_enabled' => __('Add tracking to existing WhatsApp buttons/links matched by the CSS selector below.', 'capybara-seo-lead-source-tracker'),
                 ];
                 ?>
                 <label>
@@ -180,21 +180,21 @@ class WA_LS_Settings {
             case 'phone':
                 ?>
                 <input type="text" class="regular-text" name="<?php echo esc_attr(WA_LS_OPTION_KEY); ?>[phone]" value="<?php echo esc_attr($settings['phone']); ?>" placeholder="51999999999" />
-                <p class="description"><?php esc_html_e('International format, digits only (country code + number, no + no spaces).', 'wa-lead-source-tracker'); ?></p>
+                <p class="description"><?php esc_html_e('International format, digits only (country code + number, no + no spaces).', 'capybara-seo-lead-source-tracker'); ?></p>
                 <?php
                 break;
 
             case 'selector':
                 ?>
                 <input type="text" class="regular-text" name="<?php echo esc_attr(WA_LS_OPTION_KEY); ?>[selector]" value="<?php echo esc_attr($settings['selector']); ?>" placeholder=".js-whatsapp-track" />
-                <p class="description"><?php esc_html_e('Only used when "CSS Selector" above is enabled — ignored otherwise. Example: .js-whatsapp-track or a[href*="wa.me"]', 'wa-lead-source-tracker'); ?></p>
+                <p class="description"><?php esc_html_e('Only used when "CSS Selector" above is enabled — ignored otherwise. Example: .js-whatsapp-track or a[href*="wa.me"]', 'capybara-seo-lead-source-tracker'); ?></p>
                 <?php
                 break;
 
             case 'message_template':
                 ?>
                 <textarea name="<?php echo esc_attr(WA_LS_OPTION_KEY); ?>[message_template]" rows="8" class="large-text code"><?php echo esc_textarea($settings['message_template']); ?></textarea>
-                <p class="description"><?php esc_html_e('Available placeholders: {channel}, {utm_source}, {utm_medium}, {utm_campaign}, {utm_content}, {utm_term}, {gclid}, {gbraid}, {wbraid}, {fbclid}, {referrer}, {landing_page}, {captured_at}', 'wa-lead-source-tracker'); ?></p>
+                <p class="description"><?php esc_html_e('Available placeholders: {channel}, {utm_source}, {utm_medium}, {utm_campaign}, {utm_content}, {utm_term}, {gclid}, {gbraid}, {wbraid}, {fbclid}, {referrer}, {landing_page}, {captured_at}', 'capybara-seo-lead-source-tracker'); ?></p>
                 <?php
                 break;
         }

@@ -1,21 +1,21 @@
 <?php
 /**
- * Plugin Name: WA Lead Source Tracker
- * Plugin URI: https://henry.silva.llc/
+ * Plugin Name: Capybara SEO Lead Source Tracker
+ * Plugin URI: https://seo.pe
  * Description: Captures UTMs and click IDs, keeps them across page visits, and adds them to your WhatsApp messages via an auto-injected floating button, your existing buttons, and/or a shortcode — combinable. <a href="options-general.php?page=wa-lead-source-tracker">Configure the plugin</a>.
- * Version: 0.6.0
+ * Version: 0.6.2
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: Henry Silva
  * License: GPLv2 or later
- * Text Domain: wa-lead-source-tracker
+ * Text Domain: capybara-seo-lead-source-tracker
  */
 
 if (!defined('ABSPATH')) {
     exit;
 }
 
-define('WA_LS_VERSION', '0.6.0');
+define('WA_LS_VERSION', '0.6.2');
 define('WA_LS_PLUGIN_FILE', __FILE__);
 define('WA_LS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('WA_LS_PLUGIN_URL', plugin_dir_url(__FILE__));
